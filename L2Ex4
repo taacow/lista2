@@ -1,0 +1,62 @@
+import java.util.Scanner;
+class L2Ex4 {
+    public static double ValorAula(int forma, double hr, double valor) {
+        // 0 é o método normal, 1 é o pagamento antecipado com 7% de desconto
+        if (forma == 0)
+            return hr*valor;
+        else if (forma == 1)
+                return hr*valor*0.93;
+        else return -1;
+    }
+    
+    public static void main(String[] args) {
+        Scanner tec = new Scanner(System.in);
+        int a;
+        double b, c;
+        System.out.println("Esse programa irá calcular o valor das aulas\n");
+        System.out.println("Primeiro, digite 0 para a forma de pagamento normal\n"
+               +"ou digite 1 para o pagamento antecipado, ganhando 7% de desconto!");
+        a = tec.nextInt();
+        while ((a != 0) && (a != 1)) {
+            System.out.println("É só escolher entre 0 e 1, cara, não é dificil");
+            System.out.println("Vamos lá, mais uma vez");
+            a = tec.nextInt();
+        }
+        System.out.println("Agora, digite quantas horas cada aula terá");
+        b = tec.nextDouble();
+        while ((b <= 0) || (b > 15)) {
+            if (b == 0) {
+                System.out.println("Se não quer ter aula avisa porra");
+                System.out.println("Fala um valor aceitável ai vai");
+                b = tec.nextDouble();
+            }
+        
+         
+            else if (b < 0) {
+                System.out.println("Parabéns, você que vai dar a aula né seu arrombado");
+                System.out.println("Fala um valor de gente caraio");
+                b = tec.nextDouble();
+            }
+        
+        
+            else if (b > 15) {
+                System.out.println("Tu quer ter aula o dia inteiro seu porra?");
+                System.out.println("Fala um valor que um humano conseguiria fazer");
+                b = tec.nextDouble();
+            }
+        }
+        System.out.println("Por fim, digite o valor em reais da hora por aula");
+        c = tec.nextDouble();
+        while (c < 0) {
+            System.out.println("Você é o que, retardado? Quer que eu te pague pelas aulas?");
+            System.out.println("Se quiser falar um valor decente agora eu agradeço");
+            c = tec.nextDouble();
+        }
+        if (c == 0) System.out.println("Parabéns, a aula vai ser de graça seu otário");
+        else {
+            System.out.println("O valor da aula descrita será de " + ValorAula(a,b,c) + " reais");
+        }
+    }
+}
+
+    
