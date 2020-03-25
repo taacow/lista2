@@ -1,0 +1,39 @@
+import java.util.Scanner;
+class L2Ex7 {
+    public static double convertor(int op, double conv) {
+        /*op é o método de conversão, se op = 1, o programa converterá
+           Celsius em Fahrenheit, se op = 2, a conversão ocorrerá de F para C*/
+        double C = (conv-32)*5/9;
+        double F = conv*9/5 + 32;
+        if (op == 1) //transformará C em F
+            return F;
+        else if (op == 2) //transformará F em C
+            return C;
+        else return -1;
+    }
+    public static void falador() {
+        Scanner tec = new Scanner(System.in);
+        int a;
+        double b;
+        System.out.println("Esse programa converte uma temperatura de uma unidade de medida para outra.");
+        System.out.println("Digite 1 se deseja converter ºCelsius para ºFahrenheit");
+        System.out.println("Digite 2 se deseja converter ºFahrenheit para ºCelsius");
+        a = tec.nextInt();
+        if (a == 1) {
+            System.out.println("Digite a temperatura em ºC que deseja converter");
+            b = tec.nextDouble();
+            System.out.printf("O valor convertido será %.2f", convertor(a,b));
+            System.out.println("ºF");
+        }
+        else if (a == 2) {
+            System.out.println("Digite a temperatura em ºF que deseja converter");
+            b = tec.nextDouble();
+            System.out.printf("O valor convertido será %.2f", convertor(a,b));
+            System.out.println("ºC");
+        }
+        else System.out.println("Não é possível reconhecer a opção escolhida");
+    }
+    public static void main(String[] args) {
+    falador();    
+    }
+}
