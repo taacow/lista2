@@ -1,0 +1,53 @@
+import java.util.Scanner;
+class L2Ex8 {
+    public static int data(int dia1, int mes1, int ano1, int dia2, int mes2, int ano2) {
+        int data1, data2;
+        if (ano1>=0 || ano2>=0) {
+            data1 = ano1*10000+mes1*100+dia1;
+            data2 = ano2*10000+mes2*100+dia2;
+        }
+        else {
+            data1 = ano1*10000-mes1*100-dia1;
+            data2 = ano2*10000-mes2*100-dia2;
+        }
+        if (data1>=data2)
+            return data1;
+        else return data2;
+    }
+    public static void falador() {
+        Scanner tec = new Scanner(System.in);
+        int a1,a2,b1,b2,c1,c2;
+        System.out.println("Esse programa irá definir qual data é cronologicamente maior.");
+        System.out.println("Para isso digite a primeira data, começando pelo dia.");
+        a1 = tec.nextInt();
+        if (a1<0 || a1>31)
+            System.out.println("Desculpe, isso não é um dia válido.");
+        else {
+            System.out.println("Agora, digite o mês da primeira data");
+            b1 = tec.nextInt();
+            if (b1<0 || b1>12)
+                System.out.println("Desculpe, isso não é um mês válido.");
+            else {
+                System.out.println("Por último, digite o ano");
+                c1 = tec.nextInt();
+                System.out.println("Agora, realize os mesmos procedimentos para a segunda data");
+                a2 = tec.nextInt();
+                if (a2<0 || a2>31)
+                    System.out.println("Desculpe, isso não é um dia válido.");
+                else {
+                    b2 = tec.nextInt();
+                    if (b2<0 || b2>12)
+                        System.out.println("Desculpe, isso não é um mês válido.");
+                    else {
+                        c2 = tec.nextInt();
+                    long x = data(a1,b1,c1,a2,b2,c2);  
+                    System.out.println("A data, cronologicamente maior em termos de aaaammdd é: "+x);
+                    }
+                }
+            }
+        }   
+    }
+    public static void main(String args[]) {
+        falador();
+    }
+}
