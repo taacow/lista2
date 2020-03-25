@@ -1,0 +1,24 @@
+import java.util.Scanner;
+class L2Ex12 {
+    public static int lado(int a, int b, int c) {
+        if ((a < b + c) && (b < a + c) && (c < a + b))
+            return 1;
+        else return 0;
+    }
+    public static void falador() {
+        Scanner tec = new Scanner(System.in);
+        int a,b,c;
+        System.out.println("Digite 3 números inteiros para verificar se podem ser lados de um mesmo triângulo.");
+        a = tec.nextInt();
+        b = tec.nextInt();
+        c = tec.nextInt();
+        int x = lado(a,b,c);
+        if (x==1)
+            System.out.println("True.");
+        else 
+            System.out.println("False.");
+    }
+    public static void main(String[] args) {
+        falador();
+    }
+}
