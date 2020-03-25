@@ -1,0 +1,40 @@
+import java.util.Scanner;
+class L2Ex10 {
+    /*Esse programa irá definir a partir de uma dada velocidade do vento
+          a classificação de um ciclone natural.
+        */
+    public static int velocidade (double v) {
+        if (v>=62 && v<=118) return 0;
+        else if (v>118 && v<=153) return 1;
+        else if (v>153 && v<=177) return 2;
+        else if (v>177 && v<=209) return 3;
+        else if (v>209 && v<=249) return 4;
+        else if (v>249) return 5;
+        else return -1;
+    }
+    public static void falador() {
+        Scanner tec = new Scanner(System.in);
+        System.out.println("Esse programa irá definir a partir de uma dada velocidade do vento\n"
+                           +"a classificação de um ciclone natural de 0 a 5, segundo a escala Saffir-Simpson");
+        System.out.println("Digite a velocidade do vento em km/h.");  
+        double v = tec.nextDouble();
+        int x = velocidade(v);
+        if (x == 0)
+            System.out.println("Isso é apenas uma tempestade tropical");
+        else if (x == 1)
+            System.out.println("Isso é um furacão de categoria 1");
+        else if (x == 2)
+            System.out.println("Isso é um furacão de categoria 2");
+        else if (x == 3)
+            System.out.println("Isso é um furacão de categoria 3");
+        else if (x == 4)
+            System.out.println("Isso é um furacão de categoria 4");
+        else if (x == 5)
+            System.out.println("Isso é um furacão de categoria 5");
+        else
+            System.out.println("Não foi possível classificar um ciclone com a velocidade concedida"); 
+    }
+    public static void main(String[] args) {
+        falador();
+    }
+}
