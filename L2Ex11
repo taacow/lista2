@@ -1,0 +1,21 @@
+import java.util.Scanner;
+class L2Ex11 {
+    public static int num(int n1, int n2) {
+        if (n1%n2==0) return 1;
+        else return 0;
+    }
+    public static void falador() {
+        Scanner tec = new Scanner(System.in);
+        System.out.println("Digite dois números inteiros, esse programa irá verificar se o segundo número é divisor do primeiro.");
+        System.out.println("Se for divisor o programa retornará true, caso contrário retornará false.");
+        int a = tec.nextInt();
+        int b = tec.nextInt();
+        int x = num(a,b);
+        if (x==1)
+            System.out.println("True.");
+        else System.out.println("False.");
+    }
+    public static void main(String[] args) {
+        falador();
+    }
+}
