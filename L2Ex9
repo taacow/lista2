@@ -1,0 +1,76 @@
+import java.util.Scanner;
+class L2Ex9 {
+    public static double medida(int op,double valor) {
+    /* Existem quatro opções disponiveis de conversão,
+       sendo elas: 
+       polegas em km, op = 1
+       pés em km,     op = 2
+       jarda em km    op = 3  
+       e milha em km  op = 4      
+    */
+    double polegada = valor*25.3995*Math.pow(10,-6);
+    double pés = 12*polegada;
+    double jarda = 3*pés;
+    double milha = 1760*jarda;
+    
+    if (op == 1) return polegada;
+    else if (op == 2) return pés;
+    else if (op == 3) return jarda;
+    else if (op == 4) return milha;
+    else return -1;
+    } 
+    public static void falador() {
+        Scanner tec = new Scanner(System.in);
+        System.out.println("Esse programa converte alguma das medidas abaixo em quilometro(km).\n"
+                          +"Para isso, basta escolher qual medida deseja converter:");
+        System.out.println("Digite 1 para converter polegadas");
+        System.out.println("Digite 2 para pés");
+        System.out.println("Digite 3 para jardas");
+        System.out.println("Digite 4 para milhas");
+        int a = tec.nextInt();
+        while (a<1 || a>4) {
+            System.out.println("Digite uma opção válida");
+            a = tec.nextInt();
+        }
+        double b;
+        if (a==1) {
+            System.out.println("Agora digite o valor em polegadas que dejesa converter para km");
+            b = tec.nextDouble();
+            if (b<0) System.out.println("Medida negativa? Me desculpe mas isso não existe");
+            else {
+                System.out.print(b+" polegadas equivale a aproximadamente ");
+                System.out.printf("%.2f",medida(a,b)); System.out.println("Km");
+            }
+        }
+        else if (a==2) {
+            System.out.println("Agora digite o valor em pés que deseja converter para km");
+            b = tec.nextDouble();
+            if (b<0) System.out.println("Medida negativa? Me desculpe mas isso não existe");
+            else {
+                System.out.println(b+" pés equivale a aproximadamente ");
+                System.out.printf("%.2f", medida(a,b)); System.out.println("Km");
+            }
+        }
+        else if (a==3) {
+            System.out.println("Agora digite o valor em jardas que deseja converter para km");
+            b = tec.nextDouble();
+            if (b<0) System.out.println("Medida negativa? Me desculpe mas isso não existe");
+            else {
+                System.out.println(b+" jardas equivale a aproximadamente ");
+                System.out.printf("%.2f", medida(a,b)); System.out.println("Km");
+            }
+        }
+        else if (a==4) {
+            System.out.println("Agora digite o valor em milhas que deseja converter para km");
+            b = tec.nextDouble();
+            if (b<0) System.out.println("Medida negativa? Me desculpe mas isso não existe");
+            else {
+                System.out.println(b+" milhas equivale a aproximadamente ");
+                System.out.printf("%.2f", medida(a,b)); System.out.println("Km");
+            }
+        }
+    }
+    public static void main(String[] args) {
+        falador();
+    }
+}
